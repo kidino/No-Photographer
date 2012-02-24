@@ -1,0 +1,12 @@
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+      .sidebar-nav {
+        padding: 9px 0;
+      }
+	  ul.dtop li { margin-top: 8px; }
+	  .dright { float: right; }
+	  .imgthumb { position: relative; }
+	  .imgdel { position: absolute; right: 6px; top: 3px;}
+	  .commentitem { padding-bottom: 5px; margin-bottom: 5px;  }
