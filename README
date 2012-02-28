@@ -20,3 +20,7 @@ to be the designated photographer because nobody wants to be left behind. With
 No-Photographer, we make use everyone's camera in the event and award them with
 badges like "Member that uploaded the most photos", "Most tagged member" and
 probably some others that we could think of later.
+
+
+Development is based on CodeIgniter and requires MySQL database. Files included
+does not include the CodeIgniter system folder and core files.
