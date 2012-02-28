@@ -1,8 +1,9 @@
 <?php $this->load->view('layout/header'); ?>
 		<div class="row-fluid">
 			<div class="span2">
-				<p><a class="btn btn-primary" href="">Upload Photos</a></p>
-				<p><a class="btn btn-info" href="">Tag This Photo</a></p>
+				<?php if ($access_level >= ORGANIZER_LEVEL) { ?><p><a class="btn btn-primary btn-control" href="<?php echo site_url('event/new'); ?>">Create a New Event</a></p><?php } ?>
+				<?php if ($access_level >= ATTENDEE_LEVEL) { ?><p><a class="btn btn-primary btn-control" href="">Upload Photos Here</a></p><?php } ?>
+				<?php if ($access_level >= ATTENDEE_LEVEL) { ?><p><a class="btn btn-info btn-control" href="">Tag This Photo</a></p><?php } ?>
 
 				<div class="well sidebar-nav">
 				
@@ -51,7 +52,7 @@
   				<div class="row">
 					<div class="span10 imgthumb">
 						<a href="#" class="thumbnail"><img src="http://placehold.it/960x600" alt=""></a>
-						<a class="close imgdel">&times;</a>
+						<?php if ($access_level >= ORGANIZER_LEVEL) { ?><a class="close imgdel">&times;</a><?php } ?>
 					</div>
 					
 				</div>

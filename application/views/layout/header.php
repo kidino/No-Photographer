@@ -1,4 +1,11 @@
-<!DOCTYPE html>
+<?php
+
+	$active['home'] = '';
+	$active['my_badges'] = '';
+	
+	$active[$top_menu] = " class='active'";
+
+?><!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -12,7 +19,13 @@
     <link href="<?php echo base_url('css/bootstrap.css');?>" rel="stylesheet">
     <link href="<?php echo base_url('css/bootstrap-responsive.css');?>" rel="stylesheet">
     <link href="<?php echo base_url('css/custom.css');?>" rel="stylesheet">
+	
+	
+	<link rel="stylesheet" href="../">
+	
+    <link href="<?php echo base_url('css/base/jquery.ui.all.css');?>" rel="stylesheet">
 
+	
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
       <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -41,14 +54,13 @@
           <div class="nav-collapse">
             <ul class="nav">
 
-              <li class="active"><a href="#">Home</a></li>
-              <li><a href="#about">About</a></li>
-              <li><a href="#contact">Contact</a></li>
+              <li<?php echo $active['home'];?>><a href="<?php echo base_url(); ?>">Home</a></li>
+              <li<?php echo $active['my_badges'];?>><a href="<?php echo site_url('my_badges'); ?>">My Badges</a></li>
             </ul>
 			
             <p class="navbar-text pull-right">
 			<?php if ($user_id > 0) {?>
-			Logged in as <?php echo $username; ?>. <a href="<?php echo site_url('auth/login'); ?>">Logout</a>.
+			Logged in as <?php echo $username; ?>. <a href="<?php echo site_url('auth/logout'); ?>">Logout</a>.
 			<?php } else { ?>
 			Hello <?php echo $username; ?>. Do you want to <a href="<?php echo site_url('auth/login'); ?>">login</a>
 			<?php } ?>

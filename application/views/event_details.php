@@ -1,7 +1,8 @@
 <?php $this->load->view('layout/header'); ?>
 		<div class="row-fluid">
 			<div class="span2">
-				<p><a class="btn btn-primary" href="">Upload Photos Here</a></p>
+				<?php if ($access_level >= ORGANIZER_LEVEL) { ?><p><a class="btn btn-primary btn-control" href="<?php echo site_url('event/new'); ?>">Create a New Event</a></p><?php } ?>
+				<?php if ($access_level >= ATTENDEE_LEVEL) { ?><p><a class="btn btn-primary btn-control" href="">Upload Photos Here</a></p><?php } ?>
 
 				<div class="well sidebar-nav">
 				
@@ -26,7 +27,8 @@
 </ul>
 
 <div class="page-header">
-    <h1>Event Title or Something <br><small>Kuala Lumpur, Malaysia. 12 September 2012</small></h1>
+    <h1><?php echo $event['event_name']; ?>
+	<br><small><?php echo $event['location']; ?>. <?php echo date('l jS \of F Y g:ia', strtotime($event['date_start']) ); ?></small></h1>
   </div>
 
  
@@ -34,7 +36,7 @@
 				<?php for ($i = 1; $i <= 9; $i++){ ?>
 				<li class="span3 imgthumb">
 				<a href="<?php echo site_url('photo/x'); ?>" class="thumbnail"><img src="http://placehold.it/260x180" alt=""></a>
-				<a class="close imgdel">&times;</a>
+					<?php if ($access_level >= ADMIN_LEVEL) { ?><a class="close imgdel">&times;</a><?php } ?>
 				</li>
 				<?php } ?>
 			</ul>

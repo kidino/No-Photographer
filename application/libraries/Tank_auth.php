@@ -72,6 +72,7 @@ class Tank_auth
 								'user_id'	=> $user->id,
 								'username'	=> $user->username,
 								'status'	=> ($user->activated == 1) ? STATUS_ACTIVATED : STATUS_NOT_ACTIVATED,
+								'role'	=> $user->role,
 						));
 
 						if ($user->activated == 0) {							// fail - not activated
@@ -147,6 +148,16 @@ class Tank_auth
 	function get_username()
 	{
 		return $this->ci->session->userdata('username');
+	}
+
+	/**
+	 * Get role
+	 *
+	 * @return	string
+	 */
+	function get_role()
+	{
+		return $this->ci->session->userdata('role');
 	}
 
 	/**

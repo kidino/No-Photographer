@@ -39,6 +39,7 @@
 */
 
 $route['default_controller'] = "event";
+$route['event/new'] = "event/create_new";
 $route['event/(:any)'] = "event/go/$1";
 $route['photo/(:any)'] = "photo/go/$1";
 $route['404_override'] = '';
